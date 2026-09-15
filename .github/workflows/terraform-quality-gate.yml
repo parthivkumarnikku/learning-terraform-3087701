@@ -22,3 +22,12 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+
+      - name: Install Snyk
+        uses: snyk/actions/setup@master
+
+      - name: Authenticate Snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
+      - name: Run Snyk IaC Scan
+        run: snyk iac test .
