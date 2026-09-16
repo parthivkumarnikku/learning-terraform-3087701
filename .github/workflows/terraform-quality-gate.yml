@@ -31,3 +31,8 @@ jobs:
 
       - name: Run Snyk IaC Scan
         run: snyk iac test .
+
+      - name: Run Snyk SCA Scan
+        run: snyk test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
